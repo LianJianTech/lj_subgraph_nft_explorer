@@ -3,6 +3,9 @@
 索引合约事件，进一步对链上数据再封装，便于直接查询
 ```
 
+<img src="assets/subgraph.png"  width="480" alt="nft" style="display: inline-block" />
+
+
 ## 安装Graph CLI
 
 ```
