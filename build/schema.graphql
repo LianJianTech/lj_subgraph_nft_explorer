@@ -1,0 +1,20 @@
+#记录Transfer事件
+type MyTransfer @entity {
+  id: ID!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt!
+  tokenURI: String!
+}
+
+#记录Metadata数据
+type MyMetaData @entity {
+  #每条数据需要唯一id，这里我们使用tokenId
+  id: ID!
+  #持有tokenId的地址
+  owner:Bytes!
+  #metadata文件中的name
+  name: String
+  #metadata文件中的image
+  image: String
+}

@@ -1,0 +1,27 @@
+specVersion: 0.0.4
+features:
+  - fullTextSearch
+  - ipfsOnEthereumContracts
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NFTExplorer
+    network: rinkeby
+    source:
+      address: "0x9b6dbE875D970F5FB0e0ADF9B33E2C0f6692Df5b"
+      abi: NFTExplorer
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - MetaData
+      abis:
+        - name: NFTExplorer
+          file: ./abis/NFTExplorer.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/nft-explorer.ts
